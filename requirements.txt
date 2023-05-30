@@ -1,0 +1,6 @@
+httpx==0.23.0
+pandas==1.5.3
+plotly==5.9.0
+polars==0.17.13
+rich==13.3.2
+streamlit==1.21.0
