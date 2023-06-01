@@ -65,6 +65,22 @@ def get_data():
 
 
 if __name__ == "__main__":
+    current_time = datetime.utcnow()
+
+    # Calculate the timestamp for 11:59:55 PM UTC today
+    target_datetime = datetime.utcnow().replace(
+        hour=23, minute=59, second=56, microsecond=0
+    )
+
+    # If the target time is in the past, add one day to the target time
+    if target_datetime.timestamp() <= current_time.timestamp():
+        target_datetime += timedelta(days=1)
+
+    # Calculate the number of seconds until the target time
+    sleep_time = (target_datetime - datetime.utcnow()).total_seconds()
+    print(sleep_time)
+    # Wait until the target time
+    time.sleep(sleep_time)
 
     # Call the function
     get_data()
