@@ -49,3 +49,10 @@ def fetch_latest_prem_volume():
     latest_prem_volume = selected_df.tail(1)
 
     return latest_prem_volume
+
+def fetch_n_days_volume(timeperiod):
+        df = read_sqlite_db("scripts/aevo_data.db","aevo_data")
+        df["name"] = 'Aevo'
+        selected_df = df[["name","daily_volume"]]
+        total_volume = selected_df.tail(timeperiod)
+        return total_volume
